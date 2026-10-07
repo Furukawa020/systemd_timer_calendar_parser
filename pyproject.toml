@@ -1,0 +1,14 @@
+[project]
+name = "systemd-timer-calendar-parser"
+version = "0.1.0"
+description = "Parses systemd's OnCalendar time expressions (e.g. 'Mon..Fri 09:00', '*-*-* 02:00:00') into comparable, iterable datetime objects."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
