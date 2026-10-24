@@ -50,3 +50,10 @@ Time fields must be zero-padded: `09:00` parses, `9:00` does not. Dates must be 
   - `.next_after(after=None, *, strict_after=True, max_days=...) -> datetime`
   - `.iter_from(after=None, *, strict_after=True, max_days=...) -> Iterator[datetime]`
 - `ParseError` — subclass of `ValueError`, raised on malformed or unsupported expressions.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
